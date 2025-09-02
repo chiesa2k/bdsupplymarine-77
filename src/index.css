@@ -1,0 +1,226 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Maritime Dashboard Design System - Cores náuticas e oceânicas
+Todas as cores em HSL para máxima flexibilidade
+*/
+
+@layer base {
+  :root {
+    /* Base oceânica */
+    --background: 210 40% 98%;
+    --foreground: 210 20% 8%;
+
+    /* Cards com elegância marítima */
+    --card: 0 0% 100%;
+    --card-foreground: 210 20% 8%;
+    
+    /* Popovers com profundidade */
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 20% 8%;
+
+    /* Azul oceânico primário */
+    --primary: 210 85% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 210 85% 65%;
+    
+    /* Azul aço secundário */
+    --secondary: 210 30% 92%;
+    --secondary-foreground: 210 20% 15%;
+    
+    /* Tons neutros elegantes */
+    --muted: 210 20% 95%;
+    --muted-foreground: 210 15% 45%;
+    
+    /* Cyan náutico para destaques */
+    --accent: 195 85% 88%;
+    --accent-foreground: 210 85% 25%;
+    
+    /* Vermelho para alertas */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    
+    /* Bordas e inputs sutis */
+    --border: 210 25% 88%;
+    --input: 210 25% 88%;
+    --ring: 210 85% 45%;
+
+    /* Gradientes oceânicos */
+    --gradient-ocean: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-wave: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+    --gradient-depth: linear-gradient(225deg, hsl(210 85% 45%), hsl(195 85% 55%));
+    
+    /* Sombras elegantes */
+    --shadow-card: 0 4px 24px -8px hsl(var(--primary) / 0.12);
+    --shadow-interactive: 0 8px 32px -12px hsl(var(--primary) / 0.2);
+    --shadow-glow: 0 0 20px hsl(var(--primary-glow) / 0.3);
+    
+    /* Animações suaves */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Profundidades oceânicas escuras */
+    --background: 210 25% 6%;
+    --foreground: 210 20% 92%;
+
+    /* Cards com elegância noturna */
+    --card: 210 25% 8%;
+    --card-foreground: 210 20% 92%;
+    
+    /* Popovers profundos */
+    --popover: 210 25% 8%;
+    --popover-foreground: 210 20% 92%;
+
+    /* Azul luminoso no escuro */
+    --primary: 210 85% 65%;
+    --primary-foreground: 210 25% 6%;
+    --primary-glow: 210 85% 75%;
+    
+    /* Azul escuro secundário */
+    --secondary: 210 25% 12%;
+    --secondary-foreground: 210 20% 85%;
+    
+    /* Tons neutros escuros */
+    --muted: 210 25% 10%;
+    --muted-foreground: 210 15% 60%;
+    
+    /* Cyan brilhante para destaques */
+    --accent: 195 85% 25%;
+    --accent-foreground: 195 85% 85%;
+    
+    /* Vermelho suavizado */
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 210 20% 92%;
+    
+    /* Bordas sutis escuras */
+    --border: 210 25% 15%;
+    --input: 210 25% 15%;
+    --ring: 210 85% 65%;
+    
+    /* Gradientes noturnos */
+    --gradient-ocean: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-wave: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+    --gradient-depth: linear-gradient(225deg, hsl(210 85% 35%), hsl(195 85% 45%));
+    
+    /* Sombras luminosas */
+    --shadow-card: 0 4px 24px -8px hsl(var(--primary) / 0.25);
+    --shadow-interactive: 0 8px 32px -12px hsl(var(--primary) / 0.35);
+    --shadow-glow: 0 0 30px hsl(var(--primary-glow) / 0.4);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    background: hsl(var(--background));
+  }
+  
+  /* Scrollbar personalizado */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.5);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.7);
+  }
+}
+
+@layer components {
+  /* Animações personalizadas */
+  .animate-wave {
+    animation: wave 2s ease-in-out infinite;
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  /* Gradientes utilitários */
+  .bg-gradient-ocean {
+    background: var(--gradient-ocean);
+  }
+  
+  .bg-gradient-wave {
+    background: var(--gradient-wave);
+  }
+  
+  .bg-gradient-depth {
+    background: var(--gradient-depth);
+  }
+
+  /* Sombras personalizadas */
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  
+  .shadow-interactive {
+    box-shadow: var(--shadow-interactive);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+}
+
+@keyframes wave {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-2px) rotate(1deg); }
+  66% { transform: translateY(2px) rotate(-1deg); }
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 20px hsl(var(--primary-glow) / 0.3); }
+  100% { box-shadow: 0 0 30px hsl(var(--primary-glow) / 0.5); }
+}
